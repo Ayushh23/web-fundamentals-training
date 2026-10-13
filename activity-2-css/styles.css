@@ -1,55 +1,170 @@
-/* ==========================================================
-   Activity 2: style the Cartly page
-   Work MOBILE-FIRST: write base styles for a phone,
-   then add media queries for bigger screens.
-   Compare with mockups/desktop.png and mockups/mobile.png
-   ========================================================== */
-
-/* TODO 1: Design tokens
-   Create CSS variables on :root for colours, spacing and radius.
-   Suggested palette:
-     ink #222322   text #3a3d3a   muted #5f645f   background #f6f7f2
-     surface #ffffff   line #e2e5dc   accent #d3ff50   accent-dark #4d6b00 */
 :root {
+  --ink: #222322;
+  --text: #3a3d3a;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --line: #e2e5dc;
+  --space: 1rem;
+  --radius: 8px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.site-header {
+   position: sticky;
+   top: 0;
+   justify-content: space-between;
+   align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: var(--space);
+   padding: var(--space);
+   background-color: var(--surface);
+ }
+ 
+ .nav-list {
+   display: flex;  
+   gap: var(--space);
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   text-decoration: none;
+   
+ }
+ 
+ .search {
+   display: flex;
+   gap: 0.5rem;
+   justify-content: space-around;
+   align-items: center;
+ }
+
+ body {
+   margin: 0;
+   font-family: sans-serif;
+   color: var(--text);
+   background: var(--background);
+ }
+
+ .btn {
+   padding: var(--space);
+   border: 1px solid var(--line);
+   border-radius: var(--radius);
+   background: var(--surface);
+   cursor: pointer;
+ }
+
+ .btn:hover{
+   background-color: aqua;
+ }
+.btn.btn-primary {
+   text-decoration: none;
+   color: #222322;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 10px;
+   margin-right: 10px;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+.hero {
+   padding: var(--space);
+   background: var(--ink);
+   color: white;
+   display: flex;
+   justify-content: space-between;
+   flex-direction:column;
+   align-items: center;
+   text-align: center;  
+   gap: 10px;
+ }
+ .products {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+   gap: var(--space);
+   list-style: none;
+   padding: var(--space);
+   margin: 0;
+ }
+
+ body h2{
+   margin: 10px;
+   padding: 10px;
+   text-align: center;
+ }
+ .section-sub{
+   margin: 10px;
+   padding: 10px;
+   text-align: center;
+ }
+
+
+
+.card {
+  background: var(--surface);
+  padding: var(--space);
+  border-radius: var(--radius);
+  height: 100%;
+  border: 2px solid var(--line);
 
 }
 
-/* TODO 2: Reset
-   - box-sizing: border-box on everything
-   - images: max-width: 100%; height: auto; display: block
-   - remove default margins on body, headings, paragraphs */
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.card:hover{
+   background-color:aquamarine;
+}
+
+.newsletter, .site-footer {
+  padding: var(--space);
+  background-color: #222322;
+  color: #e2e5dc;
+
+}
+.footer-links{
+   display: flex;  
+   gap: var(--space);
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   text-decoration: none;
+   align-items: center;
+   justify-content: center;
+   
+}
+.footer-links a {
+   text-decoration: none;
+   color: white;
+ }
+ 
+ .footer-links a:hover {
+   text-decoration: underline;
+ }
 
 
-/* TODO 3: Base typography (body font, size, line-height, colours) */
 
-
-/* TODO 4: Buttons (.btn and .btn-primary), with :hover styles */
-
-
-/* TODO 5: Header
-   - Flexbox: logo, nav and search in a row (wrap on mobile)
-   - position: sticky; top: 0  so it stays visible while scrolling */
-
-
-/* TODO 6: Hero
-   - dark background, white heading
-   - one column on mobile, two columns from 768px */
-
-
-/* TODO 7: Product grid
-   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
-   Cards: white, rounded, padding.
-   Images: aspect-ratio: 1 / 1; object-fit: cover */
-
-
-/* TODO 8: Newsletter form and footer */
-
-
-/* TODO 9: Accessibility
-   - visible :focus-visible outline on links, buttons and inputs
-   - check text contrast with DevTools */
-
-
-/* TODO 10: Media queries
-@media (min-width: 768px) { ... }
-@media (min-width: 1024px) { ... } */
+@media (min-width: 768px) 
+{
+   .hero 
+   {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .site-header {
+   flex-wrap: space-between;
+   gap: 0;
+   padding: 0;
+  }
+}
