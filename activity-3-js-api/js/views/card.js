@@ -1,14 +1,14 @@
-// card.js: a "component": takes one product object, returns an HTML string.
-//
-// A product from the API looks like:
-// { id: 1, title: "Essence Mascara Lash Princess", price: 9.99,
-//   rating: 2.56, category: "beauty", brand: "Essence",
-//   thumbnail: "https://cdn.dummyjson.com/..." }
-
 export function Card(product) {
-  // TODO: return the markup for one card.
-  // Reuse the card HTML from Activity 2, but fill it with ${product.title} etc.
-  // Remember: alt text, width/height, loading="lazy".
-  // Some products have no brand. Use ?? to give a default.
-  return `<li>TODO: ${product.title}</li>`;
+  return `
+    <li>
+      <article class="card">
+        <img src="${product.thumbnail}" alt="${product.title}" width="300" height="300" loading="lazy">
+        <p class="card-category">${product.brand ?? "Unknown"}</p>
+        <h3 class="card-title">${product.title}</h3>
+        <p class="card-price">$${product.price}</p>
+        <p class="card-rating">Rated ${product.rating} out of 5</p>
+        <button type="button" class="btn">Add to cart</button>
+      </article>
+    </li>
+  `;
 }
